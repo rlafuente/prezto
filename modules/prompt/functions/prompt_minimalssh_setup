@@ -44,9 +44,9 @@ function prompt_minimal_setup {
 
   # Add hostname if in a SSH connection
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    PROMPTDIR='%2~'
-  else
     PROMPTDIR='%m:%2~'
+  else
+    PROMPTDIR='%2~'
   fi
 
   # Define prompts.
