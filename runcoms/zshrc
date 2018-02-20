@@ -10,4 +10,89 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# default applications
+export TERM="xterm-256color"
+export EDITOR="vim"
+# fix GTK Dbus error messages
+export NO_AT_BRIDGE=1
+# disable ctrl-s suspending
+stty stop undef
+# don't overwrite without asking!
+alias cp="cp -i"
+alias mv="mv -i"
+
+# nice things from http://grml.org/zsh/zsh-lovers.html
+# cache completion entries (e.g apt and dpkg)
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh-cache
+# complete process id's
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+# cd will never select the parent directory (e.g.: cd ../<TAB>):
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# other nice things from 
+# http://joshsymonds.com/blog/2014/06/12/shell-awesomeness-with-prezto/
+# Keep echo "station" > station from clobbering station
+setopt NO_CLOBBER
+# Case insensitive globbing
+setopt NO_CASE_GLOB
+# Be Reasonable!
+setopt NUMERIC_GLOB_SORT
+# I don't know why I never set this before.
+setopt EXTENDED_GLOB
+# hows about arrays be awesome?  (that is, frew${cool}frew has frew surrounding all the variables, not just first and last
+setopt RC_EXPAND_PARAM
+
+# my personal handy shortcuts
+alias c='clear'
+alias go='gio open'
+alias lt='ls -t --color | tac'
+alias ll="ls -lah"
+alias dt='dmesg | tail'
+# copy to clipboard
+alias copy='xclip -selection clipboard'
+# colored, highlighted less
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
+# git
+alias gpgp='git pull && git push'
+alias gpu='git fetch upstream && git merge upstream/master'
+# apt
+alias as='aptitude search'
+alias ai='sudo aptitude install'
+alias aiy='sudo aptitude install -y'
+alias au='sudo aptitude update && sudo aptitude upgrade'
+# apache and web
+alias apr='sudo /etc/init.d/apache2 restart'
+alias server='go http://localhost:8000 && python -m SimpleHTTPServer'
+# django
+alias pm='python manage.py'
+alias pmsh='pm shell_plus'
+alias pmrs='pm runserver_plus'
+# setup virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_CACHE=$WORKON_HOME/.pip-cache
+source /etc/bash_completion.d/virtualenvwrapper
+# mpv
+alias m='mpv --no-audio-display'
+alias mp='mpv --playlist'
+alias movieplay='mpv --vo x11 --subfont-text-scale 5 --framedrop '
+# taskwarrior
+alias t='task'
+alias ta='task add'
+# mount shortcuts
+alias mtb='udisksctl mount -b /dev/sdb1'
+alias umtb='udisksctl unmount -b /dev/sdb1'
+alias mtc='udisksctl mount -b /dev/sdc1'
+alias umtc='udisksctl unmount -b /dev/sdc1'
+
+# trim loud beeps
+xset b 1
+
+# set up Wine
+export WINEARCH="win32"
+export WINEPREFIX=~/.winetricks/
+
+# set up Torch
+. /home/rlafuente/build/torch/install/bin/torch-activate
