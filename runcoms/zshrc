@@ -10,6 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Customize to your needs...
+
 # default applications
 export TERM="xterm-256color"
 export EDITOR="vim"
@@ -20,6 +22,8 @@ stty stop undef
 # don't overwrite without asking!
 alias cp="cp -i"
 alias mv="mv -i"
+# add $HOME/bin to path
+export PATH=$HOME/bin/:$PATH
 
 # nice things from http://grml.org/zsh/zsh-lovers.html
 # cache completion entries (e.g apt and dpkg)
@@ -56,7 +60,7 @@ alias copy='xclip -selection clipboard'
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # git
-alias gpgp='git pull && git push'
+alias gpgp='git pull origin master && git push origin master'
 alias gpu='git fetch upstream && git merge upstream/master'
 # apt
 alias as='aptitude search'
