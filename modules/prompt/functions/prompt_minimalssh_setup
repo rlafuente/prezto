@@ -50,7 +50,7 @@ function prompt_minimal_setup {
   fi
 
   # Define prompts.
-  PROMPT='%2~${vcs_info_msg_0_} » '
+  PROMPT='$PROMPTDIR${vcs_info_msg_0_} » '
   RPROMPT=''
 }
 
