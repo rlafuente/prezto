@@ -1,9 +1,13 @@
-#
 # Executes commands at the start of an interactive session.
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+
+# If your shell is slow, uncomment the following line and start
+# a new terminal; you'll get a full dump of what's taking how long
+# <https://unix.stackexchange.com/a/329719/345381>
+# setopt prompt_subst; zmodload zsh/datetime; PS4='+[$EPOCHREALTIME]%N:%i> '; set -x
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -60,13 +64,13 @@ alias copy='xclip -selection clipboard'
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # git
-alias gpgp='git pull origin master && git push origin master'
+alias gpgp='git pull && git push'
 alias gpu='git fetch upstream && git merge upstream/master'
 # apt
-alias as='aptitude search'
-alias ai='sudo aptitude install'
-alias aiy='sudo aptitude install -y'
-alias au='sudo aptitude update && sudo aptitude upgrade'
+alias as='apt search'
+alias ai='sudo apt install'
+alias aiy='sudo apt install -y'
+alias au='sudo apt update && sudo apt upgrade'
 # apache and web
 alias apr='sudo /etc/init.d/apache2 restart'
 alias server='go http://localhost:8000 && python -m SimpleHTTPServer'
@@ -77,26 +81,34 @@ alias pmrs='pm runserver_plus'
 # setup virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export WORKON_CACHE=$WORKON_HOME/.pip-cache
-source /etc/bash_completion.d/virtualenvwrapper
+# Virtualenvwrapper docs say we should run the next line,
+# but removing it speeds up a lot and venvwrapper seems to still work fine
+# source /etc/bash_completion.d/virtualenvwrapper
+
 # mpv
 alias m='mpv --no-audio-display'
 alias mp='mpv --playlist'
 alias movieplay='mpv --vo x11 --subfont-text-scale 5 --framedrop '
-# taskwarrior
-alias t='task'
-alias ta='task add'
+
 # mount shortcuts
 alias mtb='udisksctl mount -b /dev/sdb1'
 alias umtb='udisksctl unmount -b /dev/sdb1'
 alias mtc='udisksctl mount -b /dev/sdc1'
 alias umtc='udisksctl unmount -b /dev/sdc1'
 
-# trim loud beeps
-xset b 1
+# trim loud beeps, omit x errors in case of SSH
+xset b 1 2&> /dev/null
 
 # set up Wine
 export WINEARCH="win32"
 export WINEPREFIX=~/.winetricks/
 
 # set up Torch
-. /home/rlafuente/build/torch/install/bin/torch-activate
+# . /home/rlafuente/build/torch/install/bin/torch-activate
+
+# fix default browsers
+# FIXME: This causes a 5+ second delay on shell startup :-(
+# xdg-settings set default-web-browser firefox-esr.desktop
+# xdg-mime default firefox-esr.desktop text/html
+
+eval `dircolors ~/dotfiles/dircolors.ansi-universal`
