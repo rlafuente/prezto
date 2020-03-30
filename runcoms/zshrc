@@ -73,7 +73,7 @@ alias aiy='sudo apt install -y'
 alias au='sudo apt update && sudo apt upgrade'
 # apache and web
 alias apr='sudo /etc/init.d/apache2 restart'
-alias server='go http://localhost:8000 && python -m SimpleHTTPServer'
+alias server='go http://localhost:8000 && python3 -m http.server 8000'
 # django
 alias pm='python manage.py'
 alias pmsh='pm shell_plus'
@@ -81,6 +81,7 @@ alias pmrs='pm runserver_plus'
 # setup virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export WORKON_CACHE=$WORKON_HOME/.pip-cache
+export VIRTUALENV_PYTHON=/usr/bin/python3
 # Virtualenvwrapper docs say we should run the next line,
 # but removing it speeds up a lot and venvwrapper seems to still work fine
 # source /etc/bash_completion.d/virtualenvwrapper
