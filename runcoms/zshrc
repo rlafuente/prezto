@@ -88,8 +88,7 @@ export VIRTUALENV_PYTHON=/usr/bin/python3
 
 # mpv
 alias m='mpv --no-audio-display'
-alias mp='mpv --playlist'
-alias movieplay='mpv --vo x11 --subfont-text-scale 5 --framedrop '
+alias mj='mpv --ao=jack --no-audio-display'
 
 # mount shortcuts
 alias mtb='udisksctl mount -b /dev/sdb1'
