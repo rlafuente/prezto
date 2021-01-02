@@ -5,6 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Added this to support qt5 styling with qt5ct -- rlafuente
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # Browser
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
