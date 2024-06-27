@@ -10,4 +10,79 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# If your shell is slow, uncomment the following line and start
+# a new terminal; you'll get a full dump of what's taking how long
+# <https://unix.stackexchange.com/a/329719/345381>
+# setopt prompt_subst; zmodload zsh/datetime; PS4='+[$EPOCHREALTIME]%N:%i> '; set -x
+
+# disable ctrl-s suspending
+stty stop undef
+# don't overwrite without asking!
+alias cp="cp -i"
+alias mv="mv -i"
+
+# nice things from http://grml.org/zsh/zsh-lovers.html
+# cache completion entries (e.g apt and dpkg)
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh-cache
+# complete process id's
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+# cd will never select the parent directory (e.g.: cd ../<TAB>):
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# other nice things from 
+# http://joshsymonds.com/blog/2014/06/12/shell-awesomeness-with-prezto/
+# Keep echo "station" > station from clobbering station
+setopt NO_CLOBBER
+# Case insensitive globbing
+setopt NO_CASE_GLOB
+# Be Reasonable!
+setopt NUMERIC_GLOB_SORT
+# I don't know why I never set this before.
+setopt EXTENDED_GLOB
+# hows about arrays be awesome?  (that is, frew${cool}frew has frew surrounding all the variables, not just first and last
+setopt RC_EXPAND_PARAM
+
+# my personal handy shortcuts
+alias c='clear'
+alias go='gio open'
+alias lt='ls -t --color | tac'
+alias ll="ls -lah"
+alias dt='dmesg | tail'
+# copy to clipboard
+alias copy='xclip -selection clipboard'
+# git
+alias gpgp='git pull && git push'
+alias gpu='git fetch upstream && git merge upstream/master'
+# apt
+alias as='apt search'
+alias ai='sudo apt install'
+alias aiy='sudo apt install -y'
+alias au='sudo apt update && sudo apt upgrade'
+# apache and web
+alias apr='sudo service apache2 restart'
+alias server='go http://localhost:8000 && python3 -m http.server 8000'
+# django
+alias pm='python manage.py'
+alias pmsh='pm shell_plus'
+alias pmrs='pm runserver_plus'
+# Virtualenvwrapper docs say we should run the next line,
+# but removing it speeds up a lot and venvwrapper seems to still work fine
+# source /etc/bash_completion.d/virtualenvwrapper
+
+# mpv
+alias m='mpv --no-audio-display'
+alias mj='mpv --ao=jack --no-audio-display'
+
+# mount shortcuts
+alias mtb='udisksctl mount -b /dev/sdb1'
+alias umtb='udisksctl unmount -b /dev/sdb1'
+alias mtc='udisksctl mount -b /dev/sdc1'
+alias umtc='udisksctl unmount -b /dev/sdc1'
+
+# trim loud beeps, omit x errors in case of SSH
+xset b 1 2&> /dev/null
+
+# solarized theme for ls
+eval `dircolors ~/dotfiles/dircolors.ansi-universal`

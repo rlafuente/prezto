@@ -8,9 +8,45 @@
 # Execute code only if STDERR is bound to a TTY.
 [[ -o INTERACTIVE && -t 2 ]] && {
 
+
+# Goodbye sayings from
+# https://www.shutterfly.com/ideas/goodbye-quotes/
+#
 SAYINGS=(
-    "So long and thanks for all the fish.\n  -- Douglas Adams"
-    "Good morning! And in case I don't see ya, good afternoon, good evening and goodnight.\n  --Truman Burbank"
+    "They must often change, who would be constant in happiness or wisdom.\n – Confucius"
+    "Every new beginning comes from some other beginning’s end.\n – Semisonic"
+    "Farewell! God knows when we shall meet again.\n – William Shakespeare"
+    "It is so hard to leave—until you leave. And then it is the easiest thing in the world.\n – John Green"
+    "If you’re brave enough to say goodbye, life will reward you with a new hello.\n – Paulo Coelho"
+    "Goodbyes make you think. They make you realize what you’ve had, what you’ve lost, and what you’ve taken for granted.\n – Ritu Ghatourey"
+    "It’s sad, but sometimes moving on with the rest of your life, starts with goodbye.\n – Carrie Underwood"
+    "Don’t cry because it’s over. Smile because it happened.\n – Dr. Seuss"
+    "Goodbyes, they often come in waves.\n – Jarod Kintz"
+    "Goodbye always makes my throat hurt.\n – Charlie Brown"
+    "Some cause happiness wherever they go; others whenever they go\n – Oscar Wilde"
+    "We are really going to miss trying to avoid you around here.\n – Unknown"
+    "Don’t ever tell anyone anything. If you do, you start missing everybody.\n – J.D. Salinger"
+    "Goodbye, Vietnam! That’s right, I’m history, I’m outta here, I got the lucky ticket home, baby.\n – Good Morning Vietnam"
+    "I’ll miss you until you come back but I hope you’ll make up for it by getting me awesome gifts. Bon voyage.\n – Unknown"
+    "Great is the art of beginning, but greater is the art of ending.\n – Henry Wadsworth Longfellow"
+    "Be well, do good work, and keep in touch.\n – Garrison Keillor"
+    "This is the beginning of anything you want.\n – Unknown"
+    "Thank you for everything that you’ve accomplished so far, and good luck to everything you will in the future.\n – Unknown"
+    "Having awesome colleagues is a bad habit, because it’ll be impossible to work with someone else now that you’re leaving. Goodbye.\n – Unknown"
+    "So, old friends, now it’s time to start growing up, taking charge, seeing things as they are, facing facts, not escaping them, still with dreams, just reshaping them, growing up.\n – Stephen Sondheim"
+    "How lucky I am to have something that makes saying goodbye so hard.\n – A.A. Milne (Winnie-the-Pooh)"
+    "The magic thing about home is that it feels good to leave, and it feels even better to come back.\n – Wendy Wunder"
+    "The two hardest things to say in life is hello for the first time and goodbye for the last.\n – Moira Rogers"
+    "Only in the agony of parting do we look into the depths of love.\n – George Elio"
+    "Goodbyes are only for those who love with their eyes. Because for those who love with heart and soul there is no such thing as separation.\n – Rumi"
+    "You know it’s love when you have been saying goodbye for how many times but still you’re not ready to leave.\n – Unknown"
+    "The story of life is quicker than the wink of an eye, the story of love is hello and goodbye, until we meet again.\n – Jimi Hendrix"
+    "The pain of parting is nothing to the joy of meeting again.\n – Charles Dickens"
+    "Saying goodbye doesn’t mean anything. It’s the time we spent together that matters, not how we left it.\n – Trey Parker"
+    "It’s time to say goodbye, but I think goodbyes are sad and I’d much rather say hello. Hello to a new adventure.\n – Ernie Harwell"
+    "Good friends never say goodbye. They simply say ‘See you soon.’\n – Unknown"
+    "Never say goodbye because goodbye means going away and going away means forgetting.\n – J.M. Barrie (Peter Pan)"
+    "You never really leave the place you love. You take part of it with you and leave part of you there.\n – Unknown"
 )
 
 # Print a randomly-chosen message:
