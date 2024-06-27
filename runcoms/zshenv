@@ -13,6 +13,9 @@ fi
 # default applications
 export TERM="xterm-256color"
 
+# support qt5 styling with qt5ct
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # fix GTK Dbus error messages
 export NO_AT_BRIDGE=1
 
