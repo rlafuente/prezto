@@ -67,9 +67,9 @@ alias server='go http://localhost:8000 && python3 -m http.server 8000'
 alias pm='python manage.py'
 alias pmsh='pm shell_plus'
 alias pmrs='pm runserver_plus'
-# Virtualenvwrapper docs say we should run the next line,
-# but removing it speeds up a lot and venvwrapper seems to still work fine
-# source /etc/bash_completion.d/virtualenvwrapper
+
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# source /usr/share/bash-completion/completions/virtualenvwrapper
 
 # mpv
 alias m='mpv --no-audio-display'
@@ -86,3 +86,8 @@ xset b 1 2&> /dev/null
 
 # solarized theme for ls
 eval `dircolors ~/dotfiles/dircolors.ansi-universal`
+
+export NVM_DIR="$HOME/.nvm"
+# commented out because it slows down shell loading
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
